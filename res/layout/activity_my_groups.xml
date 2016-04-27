@@ -1,0 +1,113 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@drawable/blackground_01" >
+    
+    <include layout="@layout/activity_user_top" />
+
+    <Button
+        android:id="@+id/btnNewGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:drawableLeft="@drawable/qunzurili_03"
+        android:drawableRight="@drawable/qunzurili_07"
+        android:drawablePadding="10dip"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:gravity="left|center_vertical"
+        android:textSize="20sp"
+        android:textColor="#595959"
+        android:text="创建群组" />
+    
+    <Button
+        android:id="@+id/btnJoinGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:drawableLeft="@drawable/qunzurili_09"
+        android:drawableRight="@drawable/qunzurili_07"
+        android:drawablePadding="10dip"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:gravity="left|center_vertical"
+        android:textSize="20sp"
+        android:textColor="#595959"
+        android:text="加入群组" />
+    
+    <View 
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/qunzurili_12"
+        android:drawablePadding="10dip"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:gravity="left|center_vertical"
+        android:textSize="20sp"
+        android:textColor="#595959"
+        android:text="已加入群组" />
+    
+    <Button
+        android:id="@+id/btnGroupLove"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:drawableLeft="@drawable/qunzurili_16"
+        android:drawableRight="@drawable/qunzurili_17"
+        android:drawablePadding="10dip"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:gravity="left|center_vertical"
+        android:textSize="20sp"
+        android:textColor="#ffffff"
+        android:text="爱" />
+    
+    <Button
+        android:id="@+id/btnGroupDream"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:drawableLeft="@drawable/qunzurili_21"
+        android:drawableRight="@drawable/qunzurili_17"
+        android:drawablePadding="10dip"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:gravity="left|center_vertical"
+        android:textSize="20sp"
+        android:textColor="#ffffff"
+        android:text="梦想" />
+    
+    <Button
+        android:id="@+id/btnGroupFood"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:drawableLeft="@drawable/qunzurili_23"
+        android:drawableRight="@drawable/qunzurili_17"
+        android:drawablePadding="10dip"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:gravity="left|center_vertical"
+        android:textSize="20sp"
+        android:textColor="#ffffff"
+        android:text="美食" />
+
+</LinearLayout>

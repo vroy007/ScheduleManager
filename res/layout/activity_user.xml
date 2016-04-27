@@ -1,0 +1,103 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/blackground_01" >
+
+    <ImageView
+        android:layout_marginTop="25dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/gerenye_03"
+        android:layout_gravity="center"
+        android:scaleType="fitXY" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="16sp"
+        android:text="XXX" />
+    
+    <View 
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="@color/gray"
+        android:alpha="100" />
+
+    <Button
+        android:id="@+id/btnList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:gravity="left|center_vertical"
+    	android:paddingLeft="40dp"
+    	android:paddingRight="40dp"
+        android:drawableLeft="@drawable/gerenye_07"
+        android:drawablePadding="20dp"
+        android:textSize="20sp"
+        android:textColor="#ffffff"
+        android:text="日程列表" />
+
+    <Button
+        android:id="@+id/btnTeam"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/transparent"
+        android:gravity="left|center_vertical"
+    	android:paddingLeft="40dp"
+    	android:paddingRight="40dp"
+        android:drawableLeft="@drawable/gerenye_11"
+        android:drawablePadding="20dp"
+        android:textSize="20sp"
+        android:textColor="#ffffff"
+        android:text="群组日历" />
+    
+    <Button
+        android:id="@+id/btnSettings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/transparent"
+        android:gravity="left|center_vertical"
+    	android:paddingLeft="40dp"
+    	android:paddingRight="40dp"
+        android:drawableLeft="@drawable/gerenye_17"
+        android:drawablePadding="20dp"
+        android:textSize="20sp"
+        android:textColor="#ffffff"
+        android:text="常用设置" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/btnUserBack"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/gerenye_13" />
+
+    </RelativeLayout>
+    
+    <View 
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <TextView
+        android:id="@+id/tvVersion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="10dp"
+        android:textSize="16sp"
+        android:textColor="#ffffff" />
+
+</LinearLayout>

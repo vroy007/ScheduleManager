@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.schedulemanager"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="10"
+        android:targetSdkVersion="17" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.DEVICE_POWER"/>
+
+    <application
+        android:name=".components.CustomApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="ScheduleManager"
+        android:theme="@style/AppTheme" >
+        
+        <provider 
+            android:name=".services.AlarmProvider"
+            android:authorities="com.example.schedulemanager.services"
+            android:exported="false" />
+        
+        <activity
+            android:name=".activitys.MainActivity"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activitys.UserActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activitys.ScheduleListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activitys.AddScheduleActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".activitys.groups.MyGroupsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activitys.groups.NewGroupActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activitys.groups.JoinGroupActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activitys.groups.GroupFoodActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activitys.SettingsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activitys.FeedBackActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activitys.ScheduleDetailActivity"
+            android:screenOrientation="portrait" />
+        <receiver 
+            android:name=".services.AlarmReceiver">
+            <intent-filter>
+                <action android:name="com.example.schedulemanager.services.ALARM_ALERT" />
+                <action android:name="alarm_killed" />
+                <action android:name="cancel_snooze" />
+            </intent-filter>
+        </receiver>
+        <receiver 
+            android:name=".services.BootReceiver"
+            android:enabled="true"
+            android:process=":remote">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.TIME_SET" />
+                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+                <action android:name="android.intent.action.LOCALE_CHANGED" />
+            </intent-filter>
+        </receiver>
+        <service 
+            android:name=".services.AlarmService"
+            android:enabled="true"
+            android:process=":remote">
+        </service>
+        <activity 
+            android:name=".services.AlarmAlertFullScreen"
+            android:excludeFromRecents="true"
+            android:theme="@android:style/Theme.Wallpaper.NoTitleBar"
+            android:launchMode="singleInstance"
+            android:taskAffinity=""
+            android:configChanges="orientation|keyboardHidden|keyboard|navigation" />
+        <activity 
+            android:name=".services.AlarmAlert"
+            android:excludeFromRecents="true"
+            android:theme="@style/alarm_alert"
+            android:launchMode="singleInstance"
+            android:taskAffinity=""
+            android:configChanges="orientation|keyboardHidden|keyboard|navigation" />
+        
+        <service 
+            android:name=".services.AlarmKlaxon">
+            <intent-filter>
+                <action android:name="com.example.schedulemanager.services.ALARM_ALERT" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>

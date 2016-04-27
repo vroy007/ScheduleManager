@@ -1,0 +1,134 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@drawable/blackground_01" >
+    
+    <include layout="@layout/activity_user_top" />
+    
+    <View 
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey"/>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dip" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dip"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/richengye_10" />
+
+        <EditText
+            android:id="@+id/etDetailContent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="5dip"
+            android:layout_gravity="center_vertical"
+            android:background="@color/transparent"
+            android:textSize="16sp"
+            android:textColor="#4b4b4b"
+            android:inputType="textMultiLine" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:padding="20dip" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dip"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/richengye_13" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="5dp"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/btnDetailBegin"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center_vertical|left"
+                android:background="@color/transparent"
+                android:textSize="16sp"
+                android:textColor="#4b4b4b"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:text="开始时间" />
+            
+            <Button
+                android:id="@+id/btnDetailEnd"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center_vertical|left"
+                android:background="@color/transparent"
+                android:textSize="16sp"
+                android:textColor="#4b4b4b"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:text="结束时间" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:paddingLeft="20dip"
+        android:paddingRight="0dip" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/richengye_18" />
+
+        <Button
+            android:id="@+id/btnDetailTips"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="5dp"
+            android:gravity="center_vertical|left"
+            android:background="@color/transparent"
+            android:textSize="16sp"
+            android:textColor="#4b4b4b"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:text="开启提醒" />
+
+        <CheckBox
+            android:id="@+id/cbDetailTips"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical|right"
+            android:button="@drawable/checkbox_selector" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnMark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/richengye_normal"
+        android:textSize="16sp"
+        android:textColor="#ffffff"
+        android:text="点击标记完成√" />
+
+</LinearLayout>

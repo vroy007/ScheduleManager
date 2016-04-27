@@ -1,0 +1,54 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@drawable/blackground_01" >
+    
+    <include layout="@layout/activity_user_top" />
+
+    <Button
+        android:id="@+id/btnTimeSettings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:paddingLeft="30dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:drawableLeft="@drawable/shezhiye_03"
+        android:drawablePadding="5dp"
+        android:textSize="20sp"
+        android:textColor="@color/text"
+        android:gravity="left|center_vertical"
+        android:text="日程提醒时间\t\t\t09:00" />
+    
+    <View 
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"/>
+
+    <Button
+        android:id="@+id/btnFeedBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:padding="10dp"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:text="意见反馈" />
+
+    <Button
+        android:id="@+id/btnClearCache"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:padding="10dp"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:text="清除缓存" />
+
+</LinearLayout>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:orientation="horizontal"
+    android:paddingLeft="10dip"
+    android:paddingRight="10dip"
+    android:paddingTop="5dip"
+    android:paddingBottom="5dip"
+    android:background="@color/transparent" >
+
+    <Button
+        android:id="@+id/btnFoodDetail"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/transparent"
+        android:drawablePadding="5dp"
+        android:drawableLeft="@drawable/qunzuye_04"
+        android:gravity="center_vertical|left"
+        android:textSize="15sp"
+        android:textColor="#595959"
+        android:text="4/15\t\t牛腩煲\n09:00-18:00" />
+
+    <LinearLayout
+        android:layout_width="40dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+        
+        <View 
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/btnComment"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:background="@drawable/qunzuye_11" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:padding="5dp"
+    android:background="@color/transparent" >
+
+    <TextView
+        android:id="@+id/tvListDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_gravity="center_vertical"
+        android:textSize="18sp"
+        android:textColor="@color/grey"
+        android:text="2015/05/17" />
+
+    <TextView
+        android:id="@+id/tvListContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="40dp"
+        android:textSize="18sp"
+        android:textColor="@color/grey"
+        android:text="毕业照" />
+
+    <View 
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"/>
+    
+    <TextView
+        android:id="@+id/tvListTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginRight="15dp"
+        android:textSize="18sp"
+        android:textColor="@color/grey"
+        android:text="9:00-16:00" />
+
+</LinearLayout>
