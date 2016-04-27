@@ -1,0 +1,23 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+    
+    <include layout="@layout/activity_user_top"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/qunzuye"
+        android:scaleType="fitXY" />
+
+    <ListView
+        android:id="@+id/lvFood"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/transparent"
+        android:divider="@color/text"
+    	android:dividerHeight="0.5dp" />
+	
+</LinearLayout>

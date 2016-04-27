@@ -1,0 +1,87 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/pop_layout_comment"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/transparent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#E5E8E8"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dip"
+            android:gravity="center"
+            android:background="#cdcdcd"
+            android:textSize="18sp"
+            android:textColor="@color/text"
+            android:text="添加评论" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+        	android:paddingRight="20dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp" >
+
+            <EditText
+                android:id="@+id/etComment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dip"
+                android:gravity="top"
+                android:background="@drawable/qunzurichengye_22"
+                android:textSize="16sp"
+            	android:textColor="@color/text"
+            	android:hint="我也说一句……"
+                android:inputType="textMultiLine" />
+
+            <Button
+                android:id="@+id/btnCommit"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="@drawable/qunzurichengye_03"
+                android:layout_alignBottom="@+id/etComment"
+                android:layout_alignRight="@+id/etComment"
+                android:textSize="16sp"
+            	android:textColor="@color/text"
+                android:text="提交" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="20dp"
+        	android:paddingRight="20dp"
+            android:paddingBottom="10dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/qunzurichengye_24"
+                android:drawablePadding="5dip"
+                android:gravity="center_vertical"
+                android:textSize="16sp"
+            	android:textColor="@color/text"
+                android:text="其他评论" />
+
+            <ListView
+                android:id="@+id/lvComment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:divider="@null"
+                android:dividerHeight="0dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+    
+</RelativeLayout>

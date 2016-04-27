@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_top"
+    android:layout_width="match_parent"
+    android:layout_height="55dp"
+    android:padding="10dip"
+    android:background="@color/transparent" >
+
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="40dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical|left"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/qunzuye_06"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="@color/grey"
+        android:gravity="center"
+        android:textSize="20sp" />
+    
+    <Button
+        android:id="@+id/btnOther"
+        android:layout_width="55dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center_vertical|right"
+        android:layout_marginRight="55dp"
+        android:background="@drawable/addschedule_03"
+        android:textSize="13sp"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/btnAnother"
+        android:layout_width="55dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center_vertical|right"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/addschedule_03"
+        android:textSize="13sp"
+        android:visibility="gone" />
+
+</FrameLayout>

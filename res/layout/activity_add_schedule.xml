@@ -1,0 +1,120 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@drawable/blackground_01" >
+    
+    <include layout="@layout/activity_user_top"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bantoumingkuang"
+        android:padding="20dip" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dip"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/addschedule_11" />
+
+        <EditText
+            android:id="@+id/etAddContent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="5dip"
+            android:layout_gravity="center_vertical"
+            android:background="@color/transparent"
+            android:textSize="16sp"
+            android:textColor="#ffffff"
+            android:hint="请输入日程内容"
+            android:inputType="textMultiLine" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:padding="20dip" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dip"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/addschedule_21" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="5dp"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/btnAddBegin"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center_vertical|left"
+                android:background="@color/transparent"
+                android:textSize="16sp"
+                android:textColor="#ffffff"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:text="开始时间" />
+            
+            <Button
+                android:id="@+id/btnAddEnd"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center_vertical|left"
+                android:background="@color/transparent"
+                android:textSize="16sp"
+                android:textColor="#ffffff"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:text="结束时间" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:paddingLeft="20dip"
+        android:paddingRight="0dip" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/addschedule_24" />
+
+        <Button
+            android:id="@+id/btnAddTips"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="5dp"
+            android:gravity="center_vertical|left"
+            android:background="@color/transparent"
+            android:textSize="16sp"
+            android:textColor="#ffffff"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:text="开启提醒" />
+
+        <CheckBox
+            android:id="@+id/cbTips"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical|right"
+            android:button="@drawable/checkbox_selector" />
+
+    </LinearLayout>
+
+</LinearLayout>

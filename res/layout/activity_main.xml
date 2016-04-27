@@ -1,0 +1,259 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/blackground_01"
+    android:orientation="vertical" >
+    
+    <ScrollView
+        android:id="@+id/scrl_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:weightSum="2" >
+            
+            <include layout="@layout/activity_top"/>
+
+            <LinearLayout
+                android:id="@+id/llCalendar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical" >
+                
+                <TextView
+			        android:id="@+id/tvCalDate"
+			        android:layout_width="match_parent"
+			        android:layout_height="wrap_content"
+			        android:gravity="center"
+			        android:textSize="40sp"
+			        android:textColor="@color/text"
+			        android:text="13" />
+	
+			    <LinearLayout
+			        android:layout_width="match_parent"
+			        android:layout_height="wrap_content"
+			        android:orientation="horizontal" >
+	
+			        <View android:layout_width="0dp"
+			            android:layout_height="match_parent"
+			            android:layout_weight="1"/>
+			        
+			        <ImageView
+			            android:id="@+id/prevMonth"
+			            android:layout_width="0dp"
+			            android:layout_height="wrap_content"
+			            android:layout_gravity="center"
+			            android:layout_weight="1"
+			            android:src="@drawable/triangle06_pressed" />
+			
+			        <TextView
+			            android:id="@+id/currentMonth"
+			            android:layout_width="0dp"
+			            android:layout_height="35dp"
+			            android:layout_weight="3"
+			            android:gravity="center"
+			            android:text="September/2015"
+			            android:textColor="@color/text"
+			            android:textSize="16sp" />
+			
+			        <ImageView
+			            android:id="@+id/nextMonth"
+			            android:layout_width="0dp"
+			            android:layout_height="wrap_content"
+			            android:layout_gravity="center"
+			            android:layout_weight="1"
+			            android:src="@drawable/triangle05_pressed" />
+			        
+			        <View android:layout_width="0dp"
+			            android:layout_height="match_parent"
+			            android:layout_weight="1"/>
+			        
+			    </LinearLayout>
+			
+			    <LinearLayout
+			        android:layout_width="match_parent"
+			        android:layout_height="20dp"
+			        android:background="@color/transparent" >
+			
+			        <TextView
+			            style="@style/weekName"
+			            android:text="Sun" />
+			
+			        <TextView
+			            style="@style/weekName"
+			            android:text="Mon" />
+			
+			        <TextView
+			            style="@style/weekName"
+			            android:text="Tue" />
+			
+			        <TextView
+			            style="@style/weekName"
+			            android:text="Wed" />
+			
+			        <TextView
+			            style="@style/weekName"
+			            android:text="Thu" />
+			
+			        <TextView
+			            style="@style/weekName"
+			            android:text="Fri" />
+			
+			        <TextView
+			            style="@style/weekName"
+			            android:text="Sat" />
+			    </LinearLayout>
+			
+			    <View
+			        android:layout_width="match_parent"
+			        android:layout_height="5dp"
+			        android:background="@color/transparent" />
+			
+			    <ViewFlipper
+			        android:id="@+id/flipper"
+			        android:layout_width="fill_parent"
+			        android:background="@color/transparent"
+			        android:layout_height="256dp" />
+                
+            </LinearLayout>
+            
+            <LinearLayout
+                android:id="@+id/llWeather"    
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginTop="5dip" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dip"
+        			android:layout_marginRight="10dip"	
+                    android:textSize="16sp"
+                    android:textColor="@color/white"
+                    android:text="Schedule Today" />
+                
+                <View 
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/gray"
+                    android:alpha="100" />
+
+                <ListView
+                    android:id="@+id/lv_btnScheduel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparent"
+                    android:divider="@color/grey"
+                    android:dividerHeight="0.5dp" />
+
+                <!-- <Button
+                    android:id="@+id/btnSchedule"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:layout_marginLeft="10dip"
+        			android:layout_marginRight="10dip"
+                    android:background="@color/transparent"
+                    android:textSize="18sp"
+                    android:textColor="@color/white"
+                    android:text="待办事项：\t\n开始时间：\t\n结束时间：\t" /> -->
+                
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dip"
+        			android:layout_marginRight="10dip"
+        			android:layout_marginTop="5dip"	
+                    android:textSize="16sp"
+                    android:textColor="@color/white"
+                    android:text="Weather Today" />
+                
+                <View 
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/gray"
+                    android:alpha="100" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dip"
+        			android:layout_marginRight="10dip"
+                    android:orientation="horizontal" >
+
+                    <ImageView
+                        android:id="@+id/imgWeather"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:scaleType="fitXY"
+                        android:background="@null"
+                        android:src="@drawable/homepage_25" />
+
+                    <TextView
+                        android:id="@+id/tvWeather"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="left|center_vertical"
+                        android:layout_marginLeft="20dip"
+                        android:textSize="14sp"
+                  		android:textColor="@color/white" />
+
+                </LinearLayout>
+                
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dip"
+        			android:layout_marginRight="10dip"
+        			android:layout_marginTop="5dip"	
+                    android:textSize="16sp"
+                    android:textColor="@color/white"
+                    android:text="Chinese Almanac" />
+                
+                <View 
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/gray"
+                    android:alpha="100" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dip"
+        			android:layout_marginRight="10dip"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/tvLunarDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:textSize="14sp"
+                  		android:textColor="@color/white"
+                  		android:text="二月\n廿五" />
+
+                    <TextView
+                        android:id="@+id/tvHuangli"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:layout_marginLeft="20dip"
+                        android:textSize="14sp"
+                  		android:textColor="@color/white"
+                  		android:text="宜：祭祀，作灶，狩猎\n忌：嫁娶，安床，治病" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+            
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
