@@ -15,7 +15,7 @@ import android.content.Intent;
 import android.os.IBinder;
 
 import com.example.schedulemanager.components.CustomApplication;
-import com.example.schedulemanager.models.ScheduleModel;
+import com.example.schedulemanager.models.Schedule;
 import com.example.schedulemanager.utils.ScheduleDAO;
 
 public class AlarmService extends Service{
@@ -26,7 +26,7 @@ public class AlarmService extends Service{
 	private Context context;
 	private CustomApplication application;
 	private ScheduleDAO dao = null;
-	private List<ScheduleModel> dataList = null;
+	private List<Schedule> dataList = null;
 	private AlarmManager am = null;
 	private PendingIntent pIntent = null;
 	
@@ -44,10 +44,10 @@ public class AlarmService extends Service{
 	 */
 	private void initData() {
 		dao = new ScheduleDAO(context);
-		dataList = new ArrayList<ScheduleModel>();
+		dataList = new ArrayList<Schedule>();
 		dataList = dao.getAllSchedule();
 		for(int i = 0; i < dataList.size(); i++) {
-			ScheduleModel model = dataList.get(i);
+			Schedule model = dataList.get(i);
 			if(model.getIsTips() == 1 && model.getIsDone() == 0) {
 				int _id = model.getScheduleID();
 				String content = model.getContents();

@@ -5,21 +5,23 @@ package com.example.schedulemanager.models;
  * @author smnan
  * 2015.5.1
  */
-public class ScheduleModel{
+public class Schedule{
 
-	private int scheduleID;
-	private int isTips = -1;
-	private String contents = null;
-	private String beginTime = null;
-	private String endTime = null;
-	private String tipTime = null;
-	private int isDone = -1;
-	private int isGroup = -1;
+	public String id;
+	public int scheduleID;
+	public int isTips = -1;
+	public String contents = null;
+	public String beginTime = null;
+	public String endTime = null;
+	public String tipTime = null;
+	public int isDone = -1;
+	public int isGroup = -1;
+	public String userId;
 
-	public ScheduleModel() {
+	public Schedule() {
 	}
 
-	public ScheduleModel(int scheduleID, int isTips, String contents,
+	public Schedule(int scheduleID, int isTips, String contents,
 			String beginTime, String endTime, String tipTime, int isDone, int isGroup) {
 		super();
 		this.scheduleID = scheduleID;
@@ -30,6 +32,22 @@ public class ScheduleModel{
 		this.tipTime = tipTime;
 		this.isDone = isDone;
 		this.isGroup = isGroup;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 
 	public int getScheduleID() {
@@ -94,6 +112,13 @@ public class ScheduleModel{
 
 	public void setIsGroup(int isGroup) {
 		this.isGroup = isGroup;
+	}
+
+	@Override
+	public String toString() {
+		return "Schedule [id=" + id + ", scheduleID=" + scheduleID + ", isTips=" + isTips + ", contents=" + contents
+				+ ", beginTime=" + beginTime + ", endTime=" + endTime + ", tipTime=" + tipTime + ", isDone=" + isDone
+				+ ", isGroup=" + isGroup + ", userId=" + userId + "]";
 	}
 	
 }

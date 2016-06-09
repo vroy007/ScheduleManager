@@ -3,7 +3,7 @@ package com.example.schedulemanager.components;
 import java.util.List;
 import com.example.schedulemanager.R;
 import com.example.schedulemanager.activitys.ScheduleDetailActivity;
-import com.example.schedulemanager.models.ScheduleModel;
+import com.example.schedulemanager.models.Schedule;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -18,11 +18,11 @@ public class ScheduleTodayAdapter extends BaseAdapter{
 
 	private Context context;
 	private Activity activity;
-	private List<ScheduleModel> list;
+	private List<Schedule> list;
 	private LayoutInflater mInflater;
 	private ViewHolder holder;
 	
-	public ScheduleTodayAdapter(Context context, Activity activity, List<ScheduleModel> list) {
+	public ScheduleTodayAdapter(Context context, Activity activity, List<Schedule> list) {
 		super();
 		this.context = context;
 		this.activity = activity;
@@ -56,7 +56,7 @@ public class ScheduleTodayAdapter extends BaseAdapter{
 		else
 			holder = (ViewHolder) convertView.getTag();
 		
-		ScheduleModel model = list.get(position);
+		Schedule model = list.get(position);
 		
 		String contents = model.getContents();
 		String beginTime = model.getBeginTime();
@@ -77,10 +77,10 @@ public class ScheduleTodayAdapter extends BaseAdapter{
 	
 	private class ItemClickListener implements OnClickListener {
 
-		private ScheduleModel model = null;
+		private Schedule model = null;
 		private int position = -1;
 		
-		public ItemClickListener(ScheduleModel model, int position) {
+		public ItemClickListener(Schedule model, int position) {
 			super();
 			this.model = model;
 			this.position = position;

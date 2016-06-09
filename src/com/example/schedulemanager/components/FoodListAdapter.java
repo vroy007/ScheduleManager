@@ -5,7 +5,7 @@ import java.util.Map;
 
 import com.example.schedulemanager.R;
 import com.example.schedulemanager.activitys.ScheduleDetailActivity;
-import com.example.schedulemanager.models.ScheduleModel;
+import com.example.schedulemanager.models.Schedule;
 
 import android.app.Activity;
 import android.content.Context;
@@ -27,11 +27,11 @@ public class FoodListAdapter extends BaseAdapter{
 
 	private Context context;
 	private Activity activity;
-	private List<ScheduleModel> list;
+	private List<Schedule> list;
 	private LayoutInflater mInflater;
 	private ViewHolder holder = null;
 	
-	public FoodListAdapter(Activity activity, Context context, List<ScheduleModel> list) {
+	public FoodListAdapter(Activity activity, Context context, List<Schedule> list) {
 		this.activity = activity;
 		this.context = context;
 		this.list = list;
@@ -77,7 +77,7 @@ public class FoodListAdapter extends BaseAdapter{
 			holder.btnDetail.setCompoundDrawables(dw, null, null, null);
 		}
 		
-		ScheduleModel model = list.get(position);
+		Schedule model = list.get(position);
 		int index = model.getBeginTime().indexOf(" ");
 		holder.btnDetail.setText(model.getBeginTime().substring(0, index) + "\t\t" + model.getContents() + "\n"
 								+ model.getBeginTime() + " -- " + model.getEndTime());
@@ -99,9 +99,9 @@ public class FoodListAdapter extends BaseAdapter{
 	private class ItemClickListener implements OnClickListener {
 
 		private int position = -1;
-		private ScheduleModel model = null;
+		private Schedule model = null;
 		
-		public ItemClickListener(int position, ScheduleModel model) {
+		public ItemClickListener(int position, Schedule model) {
 			super();
 			this.position = position;
 			this.model = model;

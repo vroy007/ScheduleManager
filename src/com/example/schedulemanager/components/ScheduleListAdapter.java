@@ -16,7 +16,7 @@ import android.widget.TextView;
 import com.example.schedulemanager.R;
 import com.example.schedulemanager.activitys.ScheduleDetailActivity;
 import com.example.schedulemanager.activitys.ScheduleListActivity;
-import com.example.schedulemanager.models.ScheduleModel;
+import com.example.schedulemanager.models.Schedule;
 
 /**
  * 日程列表适配器
@@ -27,11 +27,11 @@ public class ScheduleListAdapter extends BaseAdapter{
 
 	private Context context;
 	private Activity activity;
-	private List<ScheduleModel> list;
+	private List<Schedule> list;
 	private LayoutInflater mInflater;
 	private ViewHolder holder = null;
 	
-	public ScheduleListAdapter(Activity activity, Context context, List<ScheduleModel> list) {
+	public ScheduleListAdapter(Activity activity, Context context, List<Schedule> list) {
 		this.activity = activity;
 		this.context = context;
 		this.list = list;
@@ -66,7 +66,7 @@ public class ScheduleListAdapter extends BaseAdapter{
 		else
 			holder = (ViewHolder) convertView.getTag();
 		
-		ScheduleModel model = list.get(position);
+		Schedule model = list.get(position);
 		int begin_line = model.getBeginTime().indexOf(" ");
 		holder.tvDate.setText(model.getBeginTime().substring(0, begin_line));
 		
@@ -87,10 +87,10 @@ public class ScheduleListAdapter extends BaseAdapter{
 	
 	private class ItemClickListener implements OnClickListener {
 
-		private ScheduleModel model = null;
+		private Schedule model = null;
 		private int position = -1;
 		
-		public ItemClickListener(ScheduleModel model, int position) {
+		public ItemClickListener(Schedule model, int position) {
 			super();
 			this.model = model;
 			this.position = position;

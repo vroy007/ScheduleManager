@@ -17,7 +17,7 @@ import com.example.schedulemanager.activitys.AddScheduleActivity;
 import com.example.schedulemanager.activitys.BaseActivity;
 import com.example.schedulemanager.components.CustomApplication;
 import com.example.schedulemanager.components.FoodListAdapter;
-import com.example.schedulemanager.models.ScheduleModel;
+import com.example.schedulemanager.models.Schedule;
 import com.example.schedulemanager.utils.AlertDialogUtil;
 import com.example.schedulemanager.utils.ScheduleDAO;
 /**
@@ -37,11 +37,11 @@ public class GroupFoodActivity extends BaseActivity implements OnClickListener{
 	private Button btnAdd = null;
 	
 	private ListView rlv = null;
-	private List<ScheduleModel> list = null;
+	private List<Schedule> list = null;
 	private FoodListAdapter mAdapter = null;
 	
 	private ScheduleDAO dao = null;
-	private ScheduleModel model = null;
+	private Schedule model = null;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

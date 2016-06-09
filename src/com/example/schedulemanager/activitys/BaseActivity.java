@@ -100,11 +100,11 @@ public class BaseActivity extends Activity implements Serializable{
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		builder.setTitle("温馨提示");
 		if (isLogout) {
-			builder.setMessage("确定要注锄1�7吗？");
+			builder.setMessage("确定要退出吗？");
 		}
 		
 		if (isExitApp) {
-			builder.setMessage("确定要�1�7�1�7出吗＄1�7");
+			builder.setMessage("确定要退出吗？");
 		}
 		builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
 			

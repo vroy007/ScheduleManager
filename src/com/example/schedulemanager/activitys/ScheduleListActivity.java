@@ -16,7 +16,7 @@ import android.widget.TextView;
 import com.example.schedulemanager.R;
 import com.example.schedulemanager.components.CustomApplication;
 import com.example.schedulemanager.components.ScheduleListAdapter;
-import com.example.schedulemanager.models.ScheduleModel;
+import com.example.schedulemanager.models.Schedule;
 import com.example.schedulemanager.utils.AlertDialogUtil;
 import com.example.schedulemanager.utils.ScheduleDAO;
 /**
@@ -37,8 +37,8 @@ public class ScheduleListActivity extends BaseActivity implements OnClickListene
 	private ScheduleListAdapter mAdapter = null;
 	
 	private ScheduleDAO dao = null;
-	private ScheduleModel model = null;
-	private List<ScheduleModel> dataList = new ArrayList<ScheduleModel>();
+	private Schedule model = null;
+	private List<Schedule> dataList = new ArrayList<Schedule>();
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

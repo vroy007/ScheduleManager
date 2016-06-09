@@ -1,5 +1,6 @@
 package com.example.schedulemanager.activitys;
 
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -24,14 +25,20 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
+import okhttp3.Call;
 
 import com.example.schedulemanager.R;
 import com.example.schedulemanager.components.CustomApplication;
-import com.example.schedulemanager.models.ScheduleModel;
+import com.example.schedulemanager.components.MyTimePickerDialog;
+import com.example.schedulemanager.models.Schedule;
+import com.example.schedulemanager.models.callbacks.ScheduleCallback;
 import com.example.schedulemanager.services.Alarm;
 import com.example.schedulemanager.services.Alarms;
+import com.example.schedulemanager.utils.Properties;
 import com.example.schedulemanager.utils.ScheduleDAO;
 import com.example.schedulemanager.utils.StringUtil;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
 /**
  * 日程详情页
  * @author smnan
@@ -66,7 +73,7 @@ public class ScheduleDetailActivity extends BaseActivity implements OnClickListe
 	private Map<String, Object> timeMap = null;
 	
 	private ScheduleDAO dao = null;
-	private ScheduleModel dataModel = null;
+	private Schedule dataModel = null;
 	private int scheduleID = -1;
 	
 	private int tmpYear = 0;
@@ -122,7 +129,7 @@ public class ScheduleDetailActivity extends BaseActivity implements OnClickListe
 		calendar = Calendar.getInstance();
 		
 		dao = new ScheduleDAO(this);
-		dataModel = new ScheduleModel();
+		dataModel = new Schedule();
 		dataModel = dao.getScheduleByID(scheduleID);
 		etContent.setText(dataModel.getContents());
 		btnBegin.setText("开始时间\t" + dataModel.getBeginTime());
@@ -202,10 +209,24 @@ public class ScheduleDetailActivity extends BaseActivity implements OnClickListe
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
 						//删除该日程，并finish()
-						dao.delete(scheduleID);
-						Alarms.deleteAlarm(context, scheduleID);//删除闹钟
+						//服务器
+						OkHttpUtils.get().url(Properties.LOCALHOST_IP + "schedule/delete?scheduleID=" + scheduleID)
+								.build().execute(new StringCallback() {
+									
+									@Override
+									public void onResponse(String arg0) {
+										//本地
+										dao.delete(scheduleID);
+										Alarms.deleteAlarm(context, scheduleID);//删除闹钟
+										finish();
+									}
+									
+									@Override
+									public void onError(Call arg0, Exception arg1) {
+										
+									}
+							});
 						dialog.dismiss();
-						finish();
 					}
 				})
 				.setNegativeButton("取消", new DialogInterface.OnClickListener() {
@@ -290,8 +311,33 @@ public class ScheduleDetailActivity extends BaseActivity implements OnClickListe
 				Log.v(TAG, "…………" + time);
 			}
 			
-			Toast.makeText(ScheduleDetailActivity.this, "日程修改成功！", Toast.LENGTH_SHORT).show();
-			finish();
+			//备份到服务器
+			OkHttpUtils.post().url(Properties.LOCALHOST_IP + "schedule/backup?")
+					.addParams("scheduleID", dataModel.scheduleID + "")
+					.addParams("isTips", dataModel.isTips + "")
+					.addParams("contents", dataModel.contents)
+					.addParams("beginTime", dataModel.beginTime)
+					.addParams("endTime", dataModel.endTime)
+					.addParams("tipTime", dataModel.tipTime)
+					.addParams("isDone", dataModel.isDone + "")
+					.addParams("isGroup", dataModel.isGroup + "")
+					.addParams("userId", application.getUser().id + "")
+					.build().execute(new ScheduleCallback() {
+						
+						@Override
+						public void onResponse(Schedule model) {
+							if(model != null) {
+								Toast.makeText(context, "日程修改同步成功！", Toast.LENGTH_SHORT).show();
+								finish();
+							}
+						}
+						
+						@Override
+						public void onError(Call callback, Exception e) {
+							Toast.makeText(context, "日程本地修改成功！", Toast.LENGTH_SHORT).show();
+							finish();
+						}
+					});
 		}
 	}
 	/**
@@ -371,7 +417,7 @@ public class ScheduleDetailActivity extends BaseActivity implements OnClickListe
 	private void timeAlert(final int type) {
 		int hour = calendar.get(Calendar.HOUR_OF_DAY);
 		int minute = calendar.get(Calendar.MINUTE);
-		TimePickerDialog dialog = new TimePickerDialog(ScheduleDetailActivity.this, new TimePickerDialog.OnTimeSetListener() {
+		MyTimePickerDialog dialog = new MyTimePickerDialog(ScheduleDetailActivity.this, new TimePickerDialog.OnTimeSetListener() {
 			@Override
 			public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
 				Map<String, Object> map = new HashMap<String, Object>();

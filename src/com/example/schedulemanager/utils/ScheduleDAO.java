@@ -6,7 +6,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import com.example.schedulemanager.models.ScheduleDateTag;
-import com.example.schedulemanager.models.ScheduleModel;
+import com.example.schedulemanager.models.Schedule;
 
 /**
  * 对日程DAO操作
@@ -26,7 +26,7 @@ public class ScheduleDAO {
 	 * 保存日程信息
 	 * @param scheduleVO
 	 */
-	public int save(ScheduleModel model){
+	public int save(Schedule model){
 		
 		SQLiteDatabase db = dbOpenHelper.getWritableDatabase();
 		ContentValues values = new ContentValues();
@@ -58,7 +58,7 @@ public class ScheduleDAO {
 	 * @param scheduleID
 	 * @return
 	 */
-	public ScheduleModel getScheduleByID(int scheduleID){
+	public Schedule getScheduleByID(int scheduleID){
 		SQLiteDatabase db = dbOpenHelper.getWritableDatabase();
 		Cursor cursor = db.query("schedule", new String[]{"scheduleID","content","begin_time","end_time","tip_time","isTip","isDone","isGroup"}, "scheduleID=?", new String[]{String.valueOf(scheduleID)}, null, null, null);
 		if(cursor.moveToFirst()){
@@ -71,7 +71,7 @@ public class ScheduleDAO {
 			String endTime = cursor.getString(cursor.getColumnIndex("end_time"));
 			String tipTime = cursor.getString(cursor.getColumnIndex("tip_time"));
 			cursor.close();
-			return new ScheduleModel(schID, isTip, scheduleContent, beginTime, endTime, tipTime, isDone, isGroup);
+			return new Schedule(schID, isTip, scheduleContent, beginTime, endTime, tipTime, isDone, isGroup);
 		}
 		cursor.close();
 		return null;
@@ -82,8 +82,8 @@ public class ScheduleDAO {
 	 * 查询所有的日程信息
 	 * @return
 	 */
-	public ArrayList<ScheduleModel> getAllSchedule(){
-		ArrayList<ScheduleModel> list = new ArrayList<ScheduleModel>();
+	public ArrayList<Schedule> getAllSchedule(){
+		ArrayList<Schedule> list = new ArrayList<Schedule>();
 		SQLiteDatabase db = dbOpenHelper.getReadableDatabase();
 		Cursor cursor = db.query("schedule", new String[]{"scheduleID","content","begin_time","end_time","tip_time","isTip","isDone","isGroup"}, null, null, null, null, "scheduleID desc");
 		while(cursor.moveToNext()){
@@ -95,7 +95,7 @@ public class ScheduleDAO {
 			String beginTime = cursor.getString(cursor.getColumnIndex("begin_time"));
 			String endTime = cursor.getString(cursor.getColumnIndex("end_time"));
 			String tipTime = cursor.getString(cursor.getColumnIndex("tip_time"));
-			ScheduleModel vo = new ScheduleModel(scheduleID, isTip, scheduleContent, beginTime, endTime, tipTime, isDone, isGroup);
+			Schedule vo = new Schedule(scheduleID, isTip, scheduleContent, beginTime, endTime, tipTime, isDone, isGroup);
 			list.add(vo);
 		}
 		cursor.close();
@@ -110,8 +110,8 @@ public class ScheduleDAO {
 	 * 查询群组日程信息
 	 * @return
 	 */
-	public ArrayList<ScheduleModel> getGroupSchedule(){
-		ArrayList<ScheduleModel> list = new ArrayList<ScheduleModel>();
+	public ArrayList<Schedule> getGroupSchedule(){
+		ArrayList<Schedule> list = new ArrayList<Schedule>();
 		SQLiteDatabase db = dbOpenHelper.getReadableDatabase();
 		Cursor cursor = db.query("schedule", new String[]{"scheduleID","content","begin_time","end_time","tip_time","isTip","isDone","isGroup"}, null, null, null, null, "scheduleID desc");
 		while(cursor.moveToNext()){
@@ -123,7 +123,7 @@ public class ScheduleDAO {
 			String beginTime = cursor.getString(cursor.getColumnIndex("begin_time"));
 			String endTime = cursor.getString(cursor.getColumnIndex("end_time"));
 			String tipTime = cursor.getString(cursor.getColumnIndex("tip_time"));
-			ScheduleModel vo = new ScheduleModel(scheduleID, isTip, scheduleContent, beginTime, endTime, tipTime, isDone, isGroup);
+			Schedule vo = new Schedule(scheduleID, isTip, scheduleContent, beginTime, endTime, tipTime, isDone, isGroup);
 			if(isGroup == 1)
 				list.add(vo);
 		}
@@ -156,7 +156,7 @@ public class ScheduleDAO {
 	 * 更新日程
 	 * @param vo
 	 */
-	public void update(ScheduleModel model){
+	public void update(Schedule model){
 		//dbOpenHelper = new DBOpenHelper(context, "schedules.db");
 		SQLiteDatabase db = dbOpenHelper.getWritableDatabase();
 		ContentValues values = new ContentValues();
@@ -224,7 +224,7 @@ public class ScheduleDAO {
 	 * @return
 	 */
 	public String[] getScheduleByTagDate(int year, int month, int day){
-		ArrayList<ScheduleModel> scheduleList = new ArrayList<ScheduleModel>();
+		ArrayList<Schedule> scheduleList = new ArrayList<Schedule>();
 		SQLiteDatabase db = dbOpenHelper.getReadableDatabase();
 		//根据时间查询出日程ID（scheduleID），一个日期可能对应多个日程ID
 		Cursor cursor = db.query("scheduletagdate", new String[]{"scheduleID"}, "year=? and month=? and day=?", new String[]{String.valueOf(year),String.valueOf(month),String.valueOf(day)}, null, null, null);

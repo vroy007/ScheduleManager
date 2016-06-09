@@ -44,7 +44,7 @@ import com.example.schedulemanager.R;
 import com.example.schedulemanager.components.CalendarAdapter;
 import com.example.schedulemanager.components.CustomApplication;
 import com.example.schedulemanager.components.ScheduleTodayAdapter;
-import com.example.schedulemanager.models.ScheduleModel;
+import com.example.schedulemanager.models.Schedule;
 import com.example.schedulemanager.models.WeatherModel;
 import com.example.schedulemanager.utils.DeviceUtil;
 import com.example.schedulemanager.utils.HttpUtils;
@@ -143,8 +143,8 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 			new execWeatherTask().execute("101280101"); //传�1�7�广州的城市id
 		else {
 			imgWeather.setVisibility(View.GONE);
-			tvWeather.setText("当前网络不可甄1�7");
-			Toast.makeText(MainActivity.this, "请检查网组1�7", Toast.LENGTH_SHORT).show();
+			tvWeather.setText("当前网络不可用");
+			Toast.makeText(MainActivity.this, "请检查网络", Toast.LENGTH_SHORT).show();
 		}
 		//获取默认设置文件信息
 		SharedPreferences share = getSharedPreferences(FILENAME, 0);
@@ -317,7 +317,7 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 		if(keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == MotionEvent.ACTION_DOWN) {
 			if(System.currentTimeMillis() - exitTime > 2000) {
 				exitTime = System.currentTimeMillis();
-				Toast.makeText(MainActivity.this, "再按丄1�7次�1�7�1�7出程庄1�7", Toast.LENGTH_SHORT).show();
+				Toast.makeText(MainActivity.this, "再按一次退出", Toast.LENGTH_SHORT).show();
 			}
 			else {
 				finish();
@@ -479,8 +479,8 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 	 * @param scheduleIDs
 	 */
 	private void showTodaySchedule(String[] scheduleIDs) {
-		List<ScheduleModel> list = new ArrayList<ScheduleModel>();
-		ScheduleModel model = null;
+		List<Schedule> list = new ArrayList<Schedule>();
+		Schedule model = null;
 		for(int i = 0; i < scheduleIDs.length; i++) {
 			model = dao.getScheduleByID(Integer.parseInt(scheduleIDs[i]));
 			list.add(model);

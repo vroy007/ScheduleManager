@@ -384,7 +384,7 @@ public class Alarms {
     /**
      * Disables alert in AlarmManger and StatusBar.
      *
-     * @param id Alarm ID.
+     * @param scheduleID Alarm ID.
      */
     static void disableAlert(Context context) {
         AlarmManager am = (AlarmManager)
